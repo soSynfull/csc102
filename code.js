@@ -3,7 +3,7 @@
 
 
 
-
+                   
 
 
 // Return a reference to the object with the specified value ("PlayVentiCuatro")
@@ -49,3 +49,46 @@ function playVentiCuatro()
     }
 }
 
+function checkforPalindrome()
+{
+    // Needed to do the palindrome check
+
+    let results = document.getElementById("palindromeResults")
+    console.log("Palindrome Check")
+    let inputField = document.getElementById("palindromeField");
+
+    let inputValue = inputField.value
+    console.log(inputValue);
+    // ".length" returns the length of a string object
+    let stringLength = inputValue.length;
+
+    if (stringLength > 0)
+    {
+        let iterationCount = Math.floor(stringLength/2);
+
+        let lastCharacterIndex = inputValue.length - 1;
+
+        let palindromeCheckResult = true;
+
+        // Allowed to continue our palidrone check
+        // "; ;" allows our loop to continue running (condition)
+        // "++" allows to update i value by + 1
+        for(let i = 0; i < iterationCount; i ++)
+        {
+            //"!==" both value of variable and its type are not equal to each other
+            if (inputValue[i] !== inputValue[lastCharacterIndex - i])
+            {
+                console.log("This is not a palindrome!!!")
+                results.innerHTML = "This is not a palindrome!!!"
+                // "break" terminates "For Loop" and continues instructions listed after
+                palindromeCheckResult = false;
+                break;
+            }
+        }
+        if (palindromeCheckResult)
+        {
+            console.log("This is a palindrome!!!");
+            results.innerHTML = "This is a palindrome!!!"
+        }
+    }
+}
