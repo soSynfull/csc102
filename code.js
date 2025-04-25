@@ -92,3 +92,55 @@ function checkforPalindrome()
         }
     }
 }
+
+function userInfoValidation()
+{
+    console.log("Checking User Info")
+
+    let firstNameField = document.getElementById("firstNameField")
+
+    let lastNameField = document.getElementById("lastNameField")
+
+    let zipField = document.getElementById("zipField")
+
+    let zipValue = zipField.value
+
+    let results = document.getElementById("userInfoResults")
+
+    results.innerHTML = "";
+
+    let firstNameValue = firstNameField.value;
+
+    let lastNameValue = lastNameField.value; 
+
+    // concatenation allows two seperate strings to combine together
+    let firstLastName = firstNameValue + " " + lastNameValue;
+
+    console.log(firstLastName)
+
+    if (firstLastName.length > 20)
+    {
+        results.innerHTML = "JINKIES SCOOB! Too many characters! Stay under 20!"
+
+        return; 
+    }
+// "^" is the start of a string.
+// "\" escapes the special character (^)
+// "d" signifies that it makes the length of that digit (5)
+// "$" is the end of the string
+// "/    /" encloses the information that is with the string
+
+let zipRegex = /^\d{5}$/
+
+// ! at the beginning of an "IF" statement signifies "NOT"
+    if(!zipRegex.test(zipValue))
+    {
+        results.innerHTML = "SLOW YOUR ROLLLLLLLL!!! ZIP CODES CONSISTS OF 5 NUMBERS, YOU SHOULD KNOW THIS!!!!"
+        
+        return;
+    }
+
+    results.innerHTML = " Your actions have brought you to the correct destination! "
+    console.log("Input Validated")
+}
+
