@@ -6,6 +6,8 @@
       <!-- The head section has information for the browser and search engine -->
       <head> 
             <title> CSC102 Sosynfull's Home Page </title>
+            <!-- add a link to our css file -->
+             <link rel="stylesheet" href="main.css">
       </head>
 
       <!-- The body section holds the text and images that we want to show to the user.-->
@@ -15,8 +17,11 @@
       <!-- P is paragraph tag. It has spacing around it by default. -->
             <p> 
                 <!-- img is the image tag -->
-                <img id="memeImage" src="sosynfull.jpg">
+                <img style="position: relative;" id="memeImage" src="sosynfull.jpg">
             </p>
+            <button id="startAnimation" onclick="animationFrameRequest();">Start Animation</button>
+            <button id="stopAnimation" disabled onclick="stopAnimationFrame()"> Stop Animation</button>
+            <script src="code.js"> </script>
 
        </body>
 
