@@ -144,3 +144,52 @@ let zipRegex = /^\d{5}$/
     console.log("Input Validated")
 }
 
+// 3 below are variables 
+const memeImage = document.getElementById("memeImage");
+let incrementer = 1;
+let leftPos = 0;
+
+
+function animationFrameRequest()
+{
+    incrementer = 1;
+
+    let startButton = document.getElementById("startAnimation");
+
+    startButton.disabled = true;
+
+    let stopButton = document.getElementById("stopAnimation");
+
+    stopButton.disabled = false;
+
+    animationLoop();
+}
+
+function stopAnimationFrame()
+{
+    incrementer = 0;
+
+    let startButton = document.getElementById("startAnimation");
+
+    startButton.disabled = false;
+
+    let stopButton = document.getElementById("stopAnimation");
+
+    stopButton.disabled = true;
+
+    
+}
+
+
+function animationLoop()
+{
+    // +=  takes the current value of "leftPos" and adds or is equal to incrementer and storing the results. 
+    leftPos += incrementer;
+
+    console.log(leftPos)
+    // concatenation of "leftPos" & "px" which is then set to the "style.left" property of the memeImage element
+    memeImage.style.left = leftPos + "px";
+
+    // calls back frame request which it allows it to continue to excute code
+    requestAnimationFrame(animationLoop);
+}
